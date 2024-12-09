@@ -13,6 +13,7 @@ export class GetAllArticlesHandler
   ) {}
 
   async execute(): Promise<Article[]> {
+    
     return this.articleModel.find().exec();
   }
 }

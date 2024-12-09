@@ -13,11 +13,13 @@ export class ArticlesController {
   @Post()
   async createArticle(@Body() body: { title: string; content: string }) {
     const { title, content } = body;
+    
     return this.commandBus.execute(new CreateArticleCommand(title, content));
   }
 
   @Get()
   async getAllArticles() {
+    
     return this.queryBus.execute(new GetAllArticlesQuery());
   }
 }
